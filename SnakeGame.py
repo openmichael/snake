@@ -21,11 +21,10 @@ green = pygame.Color(0, 255, 0)
 black = pygame.Color(0, 0, 0)
 white = pygame.Color(255, 255, 255)
 brown = pygame.Color(165, 42, 42)
+darkbrown = pygame.Color(101, 67, 33)
 
 #Frame Per Second controller
 fpsController = pygame.time.Clock()
-
-
 
 #Display menu at the beginning
 def gameMenu(show=1):
@@ -46,6 +45,8 @@ def gameMenu(show=1):
         menuRect = menuSurface.get_rect()
         menuRect.midtop = ((display_width/2), (display_height/2)+100)
         playSurface.blit(menuSurface, menuRect)
+        pygame.draw.rect(playSurface, brown, (0, 0, display_width, display_height), 10)
+
         pygame.display.flip()
 
         gameAction()
@@ -183,6 +184,8 @@ def startGame():
 
         #Draw the food
         pygame.draw.rect(playSurface, brown, pygame.Rect(foodPos[0], foodPos[1], 10, 10))
+
+        pygame.draw.rect(playSurface, brown, (0, 0, display_width, display_height), 10)
 
         #Set the boundaries for the game
         if snakePos[0] > 690 or snakePos[0] < 10:
